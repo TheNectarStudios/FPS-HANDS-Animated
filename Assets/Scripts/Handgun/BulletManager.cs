@@ -6,12 +6,12 @@ public class BulletManager : MonoBehaviour
     public int maxBullets = 30; // Bullets per magazine
     public int currentBullets; // Tracks current bullets
     public int totalAmmo = 90; // Total reserve bullets
-    public float reloadTime = 1.5f; // Reload duration
+    public float reloadTime = 2.5f; // Reload duration
 
     public TextMeshProUGUI bulletText; // Assign in Inspector
     public Animator animator; // Assign in Inspector
 
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     void Start()
     {

@@ -4086,6 +4086,7 @@ MonoBehaviour:
   reloadTime: 1.5
   bulletText: {fileID: 869208872}
   animator: {fileID: 4651248303217370414}
+  isReloading: 0
 --- !u!4 &1422166388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2221950671693729542, guid: db34abd64e4337f499d57248078243b6,
@@ -20559,8 +20560,8 @@ MonoBehaviour:
   CanRunning: 1
   CanClimbing: 1
   Speed: 12.11
-  CanHideDistanceWall: 1
-  HideDistance: 1.5
+  CanHideDistanceWall: 0
+  HideDistance: 0.1
   LayerMaskInt: 1
   CroughKey: 306
   characterController: {fileID: 0}

@@ -19,21 +19,32 @@ namespace EvolveGames
         [HideInInspector] public bool DefiniteHide;
         bool ItemChangeLogo;
 
+        private BulletManager bulletManager; // Reference to BulletManager
+
         private void Start()
         {
             if (ani == null && GetComponent<Animator>()) ani = GetComponent<Animator>();
+
             Color OpacityColor = ItemCanvasLogo.color;
             OpacityColor.a = 0;
             ItemCanvasLogo.color = OpacityColor;
+
             ItemChangeLogo = false;
             DefiniteHide = false;
             ChangeItemInt = ItemIdInt;
             ItemCanvasLogo.sprite = ItemLogos[ItemIdInt];
             MaxItems = Items.Length - 1;
             StartCoroutine(ItemChangeObject());
+
+            bulletManager = FindObjectOfType<BulletManager>(); // Find BulletManager
         }
+
         private void Update()
         {
+            // Prevent item switching if reloading
+            if (bulletManager != null && bulletManager.isReloading)
+                return;
+
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
                 ItemIdInt++;
@@ -44,7 +55,7 @@ namespace EvolveGames
                 ItemIdInt--;
             }
 
-            if(Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(KeyCode.H))
             {
                 if (ani.GetBool("Hide")) Hide(false);
                 else Hide(true);
@@ -52,7 +63,6 @@ namespace EvolveGames
 
             if (ItemIdInt < 0) ItemIdInt = LoopItems ? MaxItems : 0;
             if (ItemIdInt > MaxItems) ItemIdInt = LoopItems ? 0 : MaxItems;
-
 
             if (ItemIdInt != ChangeItemInt)
             {
@@ -69,7 +79,7 @@ namespace EvolveGames
 
         IEnumerator ItemChangeObject()
         {
-            if(!DefiniteHide) ani.SetBool("Hide", true);
+            if (!DefiniteHide) ani.SetBool("Hide", true);
             yield return new WaitForSeconds(0.3f);
             for (int i = 0; i < (MaxItems + 1); i++)
             {
@@ -92,20 +102,16 @@ namespace EvolveGames
 
         private void FixedUpdate()
         {
-            
+            Color OpacityColor = ItemCanvasLogo.color;
             if (ItemChangeLogo)
             {
-                Color OpacityColor = ItemCanvasLogo.color;
                 OpacityColor.a = Mathf.Lerp(OpacityColor.a, 0, 20 * Time.deltaTime);
-                ItemCanvasLogo.color = OpacityColor;
             }
             else
             {
-                Color OpacityColor = ItemCanvasLogo.color;
                 OpacityColor.a = Mathf.Lerp(OpacityColor.a, 1, 6 * Time.deltaTime);
-                ItemCanvasLogo.color = OpacityColor;
             }
+            ItemCanvasLogo.color = OpacityColor;
         }
     }
-
 }
