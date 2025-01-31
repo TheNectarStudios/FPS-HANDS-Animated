@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ladder
+  - Bullet
   layers:
   - Default
   - TransparentFX
