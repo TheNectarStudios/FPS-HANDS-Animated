@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro; // For UI bullet count display
 using System.Collections;
+
 public class BulletManager : MonoBehaviour
 {
     public int maxBullets = 30; // Bullets per magazine
@@ -10,6 +11,8 @@ public class BulletManager : MonoBehaviour
 
     public TextMeshProUGUI bulletText; // Assign in Inspector
     public Animator animator; // Assign in Inspector
+    public AudioSource audioSource; // Assign in Inspector
+    public AudioClip reloadSound; // Assign in Inspector
 
     public bool isReloading = false;
 
@@ -45,7 +48,13 @@ public class BulletManager : MonoBehaviour
 
         isReloading = true;
         animator.SetBool("Reload", true);
-        
+
+        // Play reload sound if assigned
+        if (audioSource != null && reloadSound != null)
+        {
+            audioSource.PlayOneShot(reloadSound);
+        }
+
         yield return new WaitForSeconds(reloadTime);
 
         int bulletsNeeded = maxBullets - currentBullets;
