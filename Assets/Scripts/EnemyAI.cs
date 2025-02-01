@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieController : MonoBehaviour
 {
     private Animator animator;
     private Transform player;
+    private NavMeshAgent agent;
 
     [Header("Movement Settings")]
     public float patrolSpeed = 2f;
@@ -32,11 +34,13 @@ public class ZombieController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         // Initialize health and patrolling
         currentHealth = maxHealth;
         SelectRandomPatrolPoint();
+        agent.speed = patrolSpeed;
     }
 
     void Update()
@@ -75,33 +79,28 @@ public class ZombieController : MonoBehaviour
         }
     }
 
-   private void Die()
-{
-    isDead = true;
-    animator.SetTrigger("Die"); // Trigger the die animation
-    continuousRoar.Stop();
-    hyperRoar.Stop();
-
-    // Disable further movement and AI logic
-    isPatrolling = false;
-    isChasing = false;
-    isAttacking = false;
-
-    // Disable collider if necessary
-    Collider collider = GetComponent<Collider>();
-    if (collider != null)
-        collider.enabled = false;
-
-    // Freeze Rigidbody to stop motion and rotation
-    Rigidbody rb = GetComponent<Rigidbody>();
-    if (rb != null)
+    private void Die()
     {
-        rb.constraints = RigidbodyConstraints.FreezeAll;
-    }
+        isDead = true;
+        animator.SetTrigger("Die"); // Trigger the die animation
+        continuousRoar.Stop();
+        hyperRoar.Stop();
 
-    // Optionally destroy the zombie after the death animation finishes
-    // Adjust the time to match the animation length
-}
+        // Stop NavMesh movement
+        agent.isStopped = true;
+
+        // Disable collider if necessary
+        Collider collider = GetComponent<Collider>();
+        if (collider != null)
+            collider.enabled = false;
+
+        // Optionally freeze Rigidbody to stop physics interactions
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+    }
 
     private void StartPatrolling()
     {
@@ -115,6 +114,8 @@ public class ZombieController : MonoBehaviour
         isChasing = false;
         isAttacking = false;
 
+        agent.speed = patrolSpeed;
+
         Patrol();
     }
 
@@ -126,11 +127,12 @@ public class ZombieController : MonoBehaviour
             hyperRoar.Play();
         }
 
-        isPatrolling = true;
+        isPatrolling = false;
         isChasing = true;
         isAttacking = false;
 
-        ChasePlayer();
+        agent.speed = chaseSpeed;
+        agent.SetDestination(player.position);
     }
 
     private void StartAttacking()
@@ -141,24 +143,25 @@ public class ZombieController : MonoBehaviour
             hyperRoar.Play();
         }
 
-        isPatrolling = true;
+        isPatrolling = false;
         isChasing = false;
         isAttacking = true;
 
-        AttackPlayer();
+        agent.isStopped = true;
+        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+
+        animator.SetTrigger("attack");
     }
 
     private void Patrol()
     {
         patrolTimer += Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, randomPatrolPoint) < 0.5f || patrolTimer >= patrolWaitTime)
+        if (agent.remainingDistance < 0.5f || patrolTimer >= patrolWaitTime)
         {
             SelectRandomPatrolPoint();
             patrolTimer = 0f;
         }
-
-        MoveTowards(randomPatrolPoint, patrolSpeed);
     }
 
     private void SelectRandomPatrolPoint()
@@ -167,24 +170,12 @@ public class ZombieController : MonoBehaviour
         randomDirection += transform.position;
         randomDirection.y = transform.position.y;
 
-        randomPatrolPoint = randomDirection;
-    }
-
-    private void ChasePlayer()
-    {
-        MoveTowards(player.position, chaseSpeed);
-    }
-
-    private void AttackPlayer()
-    {
-        transform.LookAt(player);
-    }
-
-    private void MoveTowards(Vector3 target, float speed)
-    {
-        Vector3 direction = (target - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
-        transform.LookAt(new Vector3(target.x, transform.position.y, target.z));
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomDirection, out hit, patrolRadius, NavMesh.AllAreas))
+        {
+            randomPatrolPoint = hit.position;
+            agent.SetDestination(randomPatrolPoint);
+        }
     }
 
     private void UpdateAnimatorParameters()
@@ -194,18 +185,13 @@ public class ZombieController : MonoBehaviour
         animator.SetBool("attacking", isAttacking);
     }
 
-    private void  OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        // Check if the object hitting the zombie has the "Bullet" tag
         if (other.CompareTag("Bullet"))
         {
-            // Apply damage (you can customize this value based on your bullet system)
             TakeDamage(20);
             Debug.Log("Zombie hit by bullet!");
             Debug.Log("Current Health: " + currentHealth);
-
-            // Destroy the bullet after it hits
-          
         }
     }
 }
