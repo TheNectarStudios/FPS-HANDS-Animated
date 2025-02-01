@@ -3,7 +3,137 @@ guid: 76c7f15838ee476498bc14dacbb0a097
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: eaebb7e7a3ce3794097ad36cf25726b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 8ccbd10e1fb92554391e837e6506c3e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black
+    second: {fileID: 2100000, guid: cae20d9658ebb4f46bdc13da738bcdac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blades
+    second: {fileID: 2100000, guid: 01a29f80731b31c40b16746f27f8600c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blades.001
+    second: {fileID: 2100000, guid: 7a0e378c88053534dba22042db263f3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color helicopter
+    second: {fileID: 2100000, guid: 28331de88123337418ac10fce61ab719, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color helicopter door
+    second: {fileID: 2100000, guid: f674c2910de683a4aa7cf461dd6d8ca7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color helicopter tail
+    second: {fileID: 2100000, guid: 02b3a5c72c9de1643978252ffc1cd7f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color helicopter.001
+    second: {fileID: 2100000, guid: 62aa0c7bb79576844b87b00763d87199, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color helicopter.003
+    second: {fileID: 2100000, guid: 2832e3e522ddc4c46b099c0b8359231f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color helicopter.fin
+    second: {fileID: 2100000, guid: 51731adbde47daa45ac1d5c56992f19a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: elements
+    second: {fileID: 2100000, guid: ee76a31904c00134099dc7e464cdf14b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: elements.001
+    second: {fileID: 2100000, guid: 5bd037a26748fe84080b84ba87e20806, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: elements.002
+    second: {fileID: 2100000, guid: 0713c6ef15c52d644b107e1d6eae3924, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: elements.003
+    second: {fileID: 2100000, guid: e5de5eeb0f121a14fb6da6ceebe5b8cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 13e2b0bf7c2a127449a7fbfdfd45b858, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grill
+    second: {fileID: 2100000, guid: 42e19ac8bad91784889ab0ef4917f4f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: int
+    second: {fileID: 2100000, guid: 3268574dac34edf4290501e0bad03fb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: int metal
+    second: {fileID: 2100000, guid: de8267ba331532347b95e6604d129d0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal.001
+    second: {fileID: 2100000, guid: 64adf3f76c7744f4196022c71a07b8d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic.001
+    second: {fileID: 2100000, guid: 69523cd9e29aab448a6f9cf8354e067b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rotor base
+    second: {fileID: 2100000, guid: 4f777c526c2215e44bcaa2025063f629, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rotor base.001
+    second: {fileID: 2100000, guid: a6d9ef5f404cb37449a3f675a026c41e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rotor base.002
+    second: {fileID: 2100000, guid: 5331930bb451ad84fba428083054affc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rubber
+    second: {fileID: 2100000, guid: 5f26dc2160647cb4994fd27d38cae078, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CDPH-4988-002_A4_Copyright_Thierry_Rostang_2015
+    second: {fileID: 2800000, guid: 0ac321da0b6e11c4bb571830e40be02f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
