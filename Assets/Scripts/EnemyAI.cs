@@ -187,13 +187,16 @@ public class ZombieController : MonoBehaviour
         animator.SetBool("attacking", isAttacking);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(20);
             Debug.Log("Zombie hit by bullet!");
             Debug.Log("Current Health: " + currentHealth);
+
+            // Destroy the bullet on impact
+            Destroy(collision.gameObject);
         }
     }
 }
