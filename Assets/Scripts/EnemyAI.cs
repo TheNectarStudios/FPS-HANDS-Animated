@@ -101,7 +101,6 @@ public class ZombieController : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
-
     private void StartPatrolling()
     {
         if (!continuousRoar.isPlaying)
@@ -114,6 +113,8 @@ public class ZombieController : MonoBehaviour
         isChasing = false;
         isAttacking = false;
 
+        animator.ResetTrigger("attack"); // Reset attack
+        agent.isStopped = false; // Resume movement
         agent.speed = patrolSpeed;
 
         Patrol();
@@ -131,10 +132,11 @@ public class ZombieController : MonoBehaviour
         isChasing = true;
         isAttacking = false;
 
+        animator.ResetTrigger("attack"); // Ensure attack animation resets
+        agent.isStopped = false; // Resume movement
         agent.speed = chaseSpeed;
         agent.SetDestination(player.position);
     }
-
     private void StartAttacking()
     {
         if (!hyperRoar.isPlaying)
