@@ -92,9 +92,6 @@ public class ZombieController : MonoBehaviour
 
         agent.isStopped = true;
 
-        Collider collider = GetComponent<Collider>();
-        if (collider != null)
-            collider.enabled = false;
 
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
