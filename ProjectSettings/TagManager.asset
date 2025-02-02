@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ladder
   - Bullet
+  - Zombie
   layers:
   - Default
   - TransparentFX

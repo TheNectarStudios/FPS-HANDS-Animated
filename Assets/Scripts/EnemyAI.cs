@@ -54,7 +54,7 @@ public class ZombieController : MonoBehaviour
         {
             StartAttacking();
         }
-        else if (distanceToPlayer <= detectionRange)
+        else if (distanceToPlayer <= detectionRange || isChasing) // Keep chasing if already chasing
         {
             StartChasing();
         }
@@ -77,30 +77,32 @@ public class ZombieController : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            StartChasing(); // Force zombie to chase the player when hit
+        }
     }
 
     private void Die()
     {
         isDead = true;
-        animator.SetTrigger("Die"); // Trigger the die animation
+        animator.SetTrigger("Die");
         continuousRoar.Stop();
         hyperRoar.Stop();
 
-        // Stop NavMesh movement
         agent.isStopped = true;
 
-        // Disable collider if necessary
         Collider collider = GetComponent<Collider>();
         if (collider != null)
             collider.enabled = false;
 
-        // Optionally freeze Rigidbody to stop physics interactions
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
+
     private void StartPatrolling()
     {
         if (!continuousRoar.isPlaying)
@@ -113,8 +115,8 @@ public class ZombieController : MonoBehaviour
         isChasing = false;
         isAttacking = false;
 
-        animator.ResetTrigger("attack"); // Reset attack
-        agent.isStopped = false; // Resume movement
+        animator.ResetTrigger("attack");
+        agent.isStopped = false;
         agent.speed = patrolSpeed;
 
         Patrol();
@@ -132,11 +134,12 @@ public class ZombieController : MonoBehaviour
         isChasing = true;
         isAttacking = false;
 
-        animator.ResetTrigger("attack"); // Ensure attack animation resets
-        agent.isStopped = false; // Resume movement
+        animator.ResetTrigger("attack");
+        agent.isStopped = false;
         agent.speed = chaseSpeed;
         agent.SetDestination(player.position);
     }
+
     private void StartAttacking()
     {
         if (!hyperRoar.isPlaying)
@@ -195,7 +198,6 @@ public class ZombieController : MonoBehaviour
             Debug.Log("Zombie hit by bullet!");
             Debug.Log("Current Health: " + currentHealth);
 
-            // Destroy the bullet on impact
             Destroy(collision.gameObject);
         }
     }
