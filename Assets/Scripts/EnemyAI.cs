@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-
+using System.Collections ; 
 public class ZombieController : MonoBehaviour
 {
     private Animator animator;
@@ -82,7 +82,6 @@ public class ZombieController : MonoBehaviour
             StartChasing(); // Force zombie to chase the player when hit
         }
     }
-
     private void Die()
     {
         isDead = true;
@@ -92,12 +91,20 @@ public class ZombieController : MonoBehaviour
 
         agent.isStopped = true;
 
-
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
+
+        // Disable the Animator after death animation finishes
+        StartCoroutine(DisableAnimatorAfterDeath());
+    }
+
+    private IEnumerator DisableAnimatorAfterDeath()
+    {
+        yield return new WaitForSeconds(3f); // Adjust to match animation length
+        animator.enabled = false; // Stops looping issues
     }
 
     private void StartPatrolling()
