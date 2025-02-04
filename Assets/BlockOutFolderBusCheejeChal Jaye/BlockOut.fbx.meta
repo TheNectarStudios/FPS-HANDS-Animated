@@ -1,0 +1,589 @@
+fileFormatVersion: 2
+guid: 6f492479fb012414ba0dce3d0e518cec
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ancient metal
+    second: {fileID: 2100000, guid: b2df50bcb510744488a1630aea9c2398, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bare Metal
+    second: {fileID: 2100000, guid: 2090bdfbf1d7de24e9d76a13144152e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bare Metal.001
+    second: {fileID: 2100000, guid: 079fb324b29836448bc225adbe58ea3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bare Metal.002
+    second: {fileID: 2100000, guid: 32e3a599a3b0b644ca5dcb72bf2e7e67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black_Metal_Plate_013
+    second: {fileID: 2100000, guid: 8de4f55ce0b6e124ca24ff21be05d3c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black_Plastic
+    second: {fileID: 2100000, guid: 60457b495c6ede54999e3e7163b2dce4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black_Sci_fi_Metal_Panel_004
+    second: {fileID: 2100000, guid: 1a999088b4c8c9c4bbae190be2609fec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete 2
+    second: {fileID: 2100000, guid: c0568aa1723f3ab48bfa93f20b7f8419, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark Metal
+    second: {fileID: 2100000, guid: bf6d8ffecd69a6e4083050cfdc270610, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark Metal.001
+    second: {fileID: 2100000, guid: 3735cb6d2aa4f1a44892b68f1e83b0d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dirty Tanslucent.001
+    second: {fileID: 2100000, guid: 101456877c42db1409ebfffd90c29abf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: faac9c2012ff6ee4cb3ccfc5a7eb87cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold_Polished
+    second: {fileID: 2100000, guid: 85927065b240f3845998ab5d4b99882e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Metal
+    second: {fileID: 2100000, guid: d32d07a6e01fb5441920a54902ae905d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Metal.001
+    second: {fileID: 2100000, guid: e084e4c34b0356a4a815ea2816e61620, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Metal.002
+    second: {fileID: 2100000, guid: 18bc9c088a335ef4899ac5c4277c04df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 340894eb85783e84bb9994a09dd884f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 99235aa107385794da09862831cfbd23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: c1b2be47b9606604093f37f881c1ff22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: d1630a4baef797e478fd0081c41aeb50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.009
+    second: {fileID: 2100000, guid: 95243fcbcbdf1c34e8d2c348bd6828d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 04938649a87f1f44a9d1e25dbe09e042, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal scratched
+    second: {fileID: 2100000, guid: b86399897a922e74baedde0af75798be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.001
+    second: {fileID: 2100000, guid: 258ee47e6d14f7549a5df628c9c53b13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.002
+    second: {fileID: 2100000, guid: 35f48ef580dc98b4d8ac4c433944406a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.003
+    second: {fileID: 2100000, guid: 5af14cae65fa15c4090c89c7a3ff5c88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.004
+    second: {fileID: 2100000, guid: 1f241d00fade45a4c884e492022ffc75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.005
+    second: {fileID: 2100000, guid: a74179711b8a7634ba8555d3ce83f1d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Plate_018
+    second: {fileID: 2100000, guid: 8716e5df544788f4190f6ea6d25d266a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sci-Fi Panel 20.001
+    second: {fileID: 2100000, guid: 58f0c419887050443b5f338cb0124b46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sci-Fi Panel.003
+    second: {fileID: 2100000, guid: ae1cd1cccf405de4e9fb16af5a208a05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sci-Fi Panel.004
+    second: {fileID: 2100000, guid: 573779b82e839c6428c740f69a1e470a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sci-Fi Panel.005
+    second: {fileID: 2100000, guid: 7ae1a7763e470b4498f6713ebf4d76e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire
+    second: {fileID: 2100000, guid: 3e79d85fbcf8c3240b21fd478243e116, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire.001
+    second: {fileID: 2100000, guid: 2d730337c024ec247ba5db2b382a8419, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire.002
+    second: {fileID: 2100000, guid: 2153989c534098f4c88039fbcf64a259, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire.003
+    second: {fileID: 2100000, guid: 42bc830e2918d034cb9400a44c27c425, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire.004
+    second: {fileID: 2100000, guid: f32b14f2e9987c543873fca9ca1edc01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire.005
+    second: {fileID: 2100000, guid: 9057649ec0a365141b364f671e949ea4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire.006
+    second: {fileID: 2100000, guid: d9c16e49313f811449373e4197f9a18d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire.007
+    second: {fileID: 2100000, guid: 62b47b362d276ef45ba1e154ac9e0e78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire.010
+    second: {fileID: 2100000, guid: 3c568efc25fdef54e8e2bfc5e95bfe50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Gold_001
+    second: {fileID: 2100000, guid: 5517b7a2b6088df46bed082ea3936b03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Grill_004_Transparent
+    second: {fileID: 2100000, guid: ba19d71de6b98ac40a8a5d78cb9aad2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black_Sci_fi_Metal_Panel_001_Transparent
+    second: {fileID: 2100000, guid: 7f768b28968729d4f8085aa8b726bc0f, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Metal_Plate_013_Base_Color
+    second: {fileID: 2800000, guid: e4648d622b12ebb4aa1fecd62fd4254c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Metal_Plate_013_Metallic
+    second: {fileID: 2800000, guid: 2c6a8969418fe494db9db852882f0c53, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Metal_Plate_013_Normal
+    second: {fileID: 2800000, guid: 1a2a35723ff240041b62aaf8b7d4fd70, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Metal_Plate_013_Roughness
+    second: {fileID: 2800000, guid: 100afe606b517d8478419047eb2757e4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Sci_fi_Metal_Panel_004_Base_Color
+    second: {fileID: 2800000, guid: 62936488bda975a4fb4f72f2a40f7193, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Sci_fi_Metal_Panel_004_Metallic
+    second: {fileID: 2800000, guid: 7eaf414bf8117f34383a9c2780908129, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Sci_fi_Metal_Panel_004_Normal
+    second: {fileID: 2800000, guid: 6eb7da894b2552d42b1f64413bbfefaf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Sci_fi_Metal_Panel_004_Roughness
+    second: {fileID: 2800000, guid: b59cd7e45300b3742adbd9e5f9afe464, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Black_Sci_fi_Metal_Panel_004_emissive
+    second: {fileID: 2800000, guid: 777ad8aaea7285d488497b8cb107f467, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Plate_018_Base_Color
+    second: {fileID: 2800000, guid: 011263e6e18d6644b98675ee247b16ec, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Plate_018_Metallic
+    second: {fileID: 2800000, guid: e26e7117eef81f6408180a5354135aab, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Plate_018_Normal
+    second: {fileID: 2800000, guid: 7c19cf3c7de0f20478dd9cf6d10359ce, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Plate_018_Roughness
+    second: {fileID: 2800000, guid: c5b9088f10599b74c977bd4d62150d22, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Plate_018_emissive
+    second: {fileID: 2800000, guid: a99e169204007064b8426cc4c7c801af, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_04_basecolor
+    second: {fileID: 2800000, guid: 3518d9bde41e04c409cde0f2caf5579b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_04_emissive
+    second: {fileID: 2800000, guid: 9a58eb9f62139b644b036997f0a84b68, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_04_metallic
+    second: {fileID: 2800000, guid: 4288015109f9b8f4d826760a041edf10, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_04_normal
+    second: {fileID: 2800000, guid: f5c710d14d669344eb5444aafe254ea3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_04_opacity
+    second: {fileID: 2800000, guid: 093c8cf1683d92b418247e7e32506ff9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_04_roughness
+    second: {fileID: 2800000, guid: 892a3aab73ac7f340ac0de6b28722a34, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_09_basecolor
+    second: {fileID: 2800000, guid: 1d7c3e85fd03dce408f1ba76aeffb4c2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_09_emissive
+    second: {fileID: 2800000, guid: 5f96bbefc2fa637468d565a9736aa19a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_09_metallic
+    second: {fileID: 2800000, guid: 6979fc58b7dcae346b833c3d95785fbe, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_09_normal
+    second: {fileID: 2800000, guid: 027c673fe2ab35d499b0f4235cf1a520, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_09_opacity
+    second: {fileID: 2800000, guid: f4b851b724904c14a9aab7200af24527, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_09_roughness
+    second: {fileID: 2800000, guid: c5b80a40841aebc4bacd4cf75a62403c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_11_basecolor
+    second: {fileID: 2800000, guid: df85f52f75aa24a4188daf993a8154c6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_11_emissive
+    second: {fileID: 2800000, guid: 1cd934d6c2b08124b85795821bfd3a3a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_11_metallic
+    second: {fileID: 2800000, guid: 6ecc5c57d29489d4db2158d6721a4e4b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_11_normal
+    second: {fileID: 2800000, guid: 8a6d7cf0f8ab7964682155c70ced11da, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_11_roughness
+    second: {fileID: 2800000, guid: 573b2d72273529e44b1a6831e859b14c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_20_basecolor
+    second: {fileID: 2800000, guid: f869b7e5c39f463479c7d97bc1079384, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_20_metallic
+    second: {fileID: 2800000, guid: f2a3721f697a1d94fa03710f06824b5b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_20_normal
+    second: {fileID: 2800000, guid: ec7f7ffa29044bd4ab86252e3ed4b479, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Sci_Fi_Panel_20_roughness
+    second: {fileID: 2800000, guid: 945f3e3033eba964c961614b497d8927, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturesCom_MetalBare0100_1_M
+    second: {fileID: 2800000, guid: 6ae72c8e13aef0e40965245d5d1f3247, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: anccint metal_Roughness
+    second: {fileID: 2800000, guid: 4cb1d625297580344af6ba52ad002ce3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Gold_001_Base_Color
+    second: {fileID: 2800000, guid: 8f8df9eb63b9af742b5be72604000ff4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Gold_001_Metallic
+    second: {fileID: 2800000, guid: d1488899edc68374b9d918100d680d1b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Gold_001_Normal
+    second: {fileID: 2800000, guid: d3a8892ad4f87d14bbbf3afc02a808ca, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Gold_001_Roughness
+    second: {fileID: 2800000, guid: c74260b2f091c664f94d98d01aedc704, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Grill_004_Base_Color
+    second: {fileID: 2800000, guid: 7324cd8c3b90fac4baeadd4e1db9c36f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Grill_004_Metallic
+    second: {fileID: 2800000, guid: 58aee996c30c77446a1b7e95cf30dcae, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Grill_004_Normal
+    second: {fileID: 2800000, guid: fdfb4fb81ef387b4282befbd30f57b67, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Grill_004_Roughness
+    second: {fileID: 2800000, guid: e3f01bbc35e719e409958529f4303520, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Metal_Grill_004_opacity
+    second: {fileID: 2800000, guid: 561ece8884fce2040b036fbfe75f35e6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Sci_fi_Metal_Panel_001_Base_Color
+    second: {fileID: 2800000, guid: e95de3af069e4904698afc793a39c516, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Sci_fi_Metal_Panel_001_Metallic
+    second: {fileID: 2800000, guid: a61a9c8ad4eba1741a7e1cd226b95a06, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Sci_fi_Metal_Panel_001_Normal
+    second: {fileID: 2800000, guid: bb288893434617d4a9a480792aea00dd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Sci_fi_Metal_Panel_001_Roughness
+    second: {fileID: 2800000, guid: 49e93b7beede6c943868239f6e032f9b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: black_Sci_fi_Metal_Panel_001_opacity
+    second: {fileID: 2800000, guid: cea7409ecb221e64ca00e50756170035, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
