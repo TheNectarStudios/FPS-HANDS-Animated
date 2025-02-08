@@ -5,7 +5,7 @@ public class MinimapFollow : MonoBehaviour
     public Transform player; // Assign player transform here
     public float height = 20f; // Adjust the height of the camera
     public float smoothSpeed = 5f;
-
+// I am the one who can make contributions here
     void LateUpdate()
     {
         if (player == null) return;
