@@ -11,11 +11,16 @@ public class PlayerHealth : MonoBehaviour
     public Camera playerCamera; // Assign Main Camera
     public CharacterController playerController; // Assign Player Movement Controller
 
+    public AudioClip damageSound; // Assign in Inspector
+    public AudioClip deathSound; // Assign in Inspector
+    private AudioSource audioSource;
+
     private bool isDead = false;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        audioSource = GetComponent<AudioSource>(); // Get AudioSource component
         UpdateHealthUI();
     }
 
@@ -24,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= damage;
+        PlaySound(damageSound); // Play damage sound
         UpdateHealthUI();
         Debug.Log("Player took damage! Current health: " + currentHealth);
 
@@ -59,7 +65,8 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
 
         Debug.Log("Player Died!");
-        
+        PlaySound(deathSound); // Play death sound
+
         // Disable movement
         if (playerController)
             playerController.enabled = false;
@@ -83,6 +90,14 @@ public class PlayerHealth : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
             Debug.Log("All camera child objects disabled.");
+        }
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
         }
     }
 

@@ -154,7 +154,7 @@ namespace EvolveGames
             // **Heal the player**
             playerHealth.Heal(30);  // Change the value as needed
 
-            yield return new WaitForSeconds(1.8f);
+            yield return new WaitForSeconds(1.6f);
 
             ani.SetBool("Hide", true);
             yield return new WaitForSeconds(0.3f);
