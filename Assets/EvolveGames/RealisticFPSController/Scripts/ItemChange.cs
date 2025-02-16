@@ -12,16 +12,17 @@ namespace EvolveGames
         [SerializeField] bool LoopItems = true;
         [SerializeField, Tooltip("You can add your new item here.")] GameObject[] Items;
         [SerializeField, Tooltip("These logos must have the same order as the items.")] Sprite[] ItemLogos;
-        [SerializeField] GameObject Medikit; // Medikit object
+        [SerializeField] GameObject Medikit;
         [SerializeField] int ItemIdInt;
         int MaxItems;
         int ChangeItemInt;
         [HideInInspector] public bool DefiniteHide;
         bool ItemChangeLogo;
         bool usingMedikit = false;
-        private int medikitCount = 0; // Start with 0 Medikits
+        private int medikitCount = 0; 
 
         private BulletManager bulletManager;
+        private PlayerHealth playerHealth;  // Reference to PlayerHealth
 
         private void Start()
         {
@@ -51,6 +52,7 @@ namespace EvolveGames
             StartCoroutine(ItemChangeObject());
 
             bulletManager = FindObjectOfType<BulletManager>();
+            playerHealth = FindObjectOfType<PlayerHealth>(); // Get the PlayerHealth component
 
             if (Medikit != null) Medikit.SetActive(false);
         }
@@ -136,7 +138,7 @@ namespace EvolveGames
 
         IEnumerator UseMedikit()
         {
-            if (medikitCount <= 0) yield break;
+            if (medikitCount <= 0 || playerHealth == null) yield break;
 
             usingMedikit = true;
             medikitCount--;
@@ -148,7 +150,11 @@ namespace EvolveGames
             Medikit.SetActive(true);
             ani.SetBool("Hide", false);
             yield return new WaitForSeconds(1.2f);
-            yield return new WaitForSeconds(2.45f);
+
+            // **Heal the player**
+            playerHealth.Heal(30);  // Change the value as needed
+
+            yield return new WaitForSeconds(2f);
 
             ani.SetBool("Hide", true);
             yield return new WaitForSeconds(0.3f);

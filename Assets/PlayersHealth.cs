@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
-    public Slider healthBar; // Assign this in Inspector
+    public Image healthBarFill; // Assign this in Inspector (Image with Fill Amount)
     public Camera playerCamera; // Assign Main Camera
     public CharacterController playerController; // Assign Player Movement Controller
 
@@ -33,10 +33,24 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Heal(int healAmount)
+    {
+        if (isDead) return;
+
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        UpdateHealthUI();
+        Debug.Log("Player healed! Current health: " + currentHealth);
+    }
+
     void UpdateHealthUI()
     {
-        if (healthBar)
-            healthBar.value = (float)currentHealth / maxHealth;
+        if (healthBarFill)
+            healthBarFill.fillAmount = (float)currentHealth / maxHealth;
     }
 
     void Die()
