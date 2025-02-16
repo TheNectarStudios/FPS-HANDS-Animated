@@ -1,18 +1,30 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
 
+    public Slider healthBar; // Assign this in Inspector
+    public Camera playerCamera; // Assign Main Camera
+    public CharacterController playerController; // Assign Player Movement Controller
+
+    private bool isDead = false;
+
     private void Start()
     {
         currentHealth = maxHealth;
+        UpdateHealthUI();
     }
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         currentHealth -= damage;
+        UpdateHealthUI();
         Debug.Log("Player took damage! Current health: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -21,9 +33,49 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void UpdateHealthUI()
+    {
+        if (healthBar)
+            healthBar.value = (float)currentHealth / maxHealth;
+    }
+
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
         Debug.Log("Player Died!");
-        // Add player death logic here
+        
+        // Disable movement
+        if (playerController)
+            playerController.enabled = false;
+
+        // Simulate camera falling
+        StartCoroutine(CameraFallEffect());
+
+        // Restart game after 3 seconds
+        Invoke(nameof(RestartGame), 3f);
+    }
+
+    System.Collections.IEnumerator CameraFallEffect()
+    {
+        float duration = 1.5f;
+        float elapsed = 0f;
+        Quaternion startRotation = playerCamera.transform.rotation;
+        Quaternion endRotation = Quaternion.Euler(90, startRotation.eulerAngles.y, 0);
+
+        while (elapsed < duration)
+        {
+            playerCamera.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        playerCamera.transform.rotation = endRotation;
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
