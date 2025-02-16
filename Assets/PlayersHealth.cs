@@ -64,11 +64,26 @@ public class PlayerHealth : MonoBehaviour
         if (playerController)
             playerController.enabled = false;
 
+        // Disable all child objects of the camera
+        DisableCameraChildren();
+
         // Simulate camera falling
         StartCoroutine(CameraFallEffect());
 
         // Restart game after 3 seconds
         Invoke(nameof(RestartGame), 3f);
+    }
+
+    void DisableCameraChildren()
+    {
+        if (playerCamera != null)
+        {
+            foreach (Transform child in playerCamera.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+            Debug.Log("All camera child objects disabled.");
+        }
     }
 
     System.Collections.IEnumerator CameraFallEffect()
