@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float lifeTime = 2f; // Time before the bullet is destroyed automatically
     public GameObject hitEffect; // Assign a particle effect prefab in the Inspector
+    public int bulletDamage = 25; // Damage dealt by the bullet
 
     void Start()
     {
@@ -12,17 +13,24 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Check if the collided object has the "Zombie" tag
+        // Check if the collided object is a Zombie
         if (collision.gameObject.CompareTag("Zombie"))
         {
-            if (hitEffect != null)
+            // Try to get the ZombieAI script
+            ZombieAI zombie = collision.gameObject.GetComponent<ZombieAI>();
+            if (zombie != null)
             {
-                // Spawn the particle effect at the point of impact
-                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                Destroy(effect, 0.5f); // Destroy the particle effect after 0.5 sec
+                zombie.TakeDamage(bulletDamage); // Reduce health
             }
 
-            Destroy(gameObject); // Destroy the bullet on impact
+            // Spawn the hit effect (if assigned)
+            if (hitEffect != null)
+            {
+                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                Destroy(effect, 0.5f); // Destroy effect after 0.5 sec
+            }
+
+            Destroy(gameObject); // Destroy bullet on impact
         }
     }
 }
