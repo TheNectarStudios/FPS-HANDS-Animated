@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,21 +12,21 @@ namespace EvolveGames
         [SerializeField] bool LoopItems = true;
         [SerializeField, Tooltip("You can add your new item here.")] GameObject[] Items;
         [SerializeField, Tooltip("These logos must have the same order as the items.")] Sprite[] ItemLogos;
-        [SerializeField] GameObject Medikit; // Separate Medikit GameObject
+        [SerializeField] GameObject Medikit; // Medikit object
         [SerializeField] int ItemIdInt;
         int MaxItems;
         int ChangeItemInt;
         [HideInInspector] public bool DefiniteHide;
         bool ItemChangeLogo;
-        bool usingMedikit = false; // Track if the player is using the medikit
+        bool usingMedikit = false;
+        private int medikitCount = 0; // Start with 0 Medikits
 
-        private BulletManager bulletManager; // Reference to BulletManager
+        private BulletManager bulletManager;
 
         private void Start()
         {
             if (ani == null && GetComponent<Animator>()) ani = GetComponent<Animator>();
 
-            // Ensure arrays are not empty
             if (Items.Length == 0 || ItemLogos.Length == 0)
             {
                 Debug.LogError("Items or ItemLogos array is empty! Assign them in the Inspector.");
@@ -51,26 +50,18 @@ namespace EvolveGames
             MaxItems = Items.Length - 1;
             StartCoroutine(ItemChangeObject());
 
-            bulletManager = FindObjectOfType<BulletManager>(); // Find BulletManager
+            bulletManager = FindObjectOfType<BulletManager>();
 
-            if (Medikit != null) Medikit.SetActive(false); // Ensure medikit is disabled at start
+            if (Medikit != null) Medikit.SetActive(false);
         }
 
         private void Update()
         {
-            // Prevent switching while using medikit or reloading
             if (usingMedikit || (bulletManager != null && bulletManager.isReloading))
                 return;
 
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-            {
-                ItemIdInt++;
-            }
-
-            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-            {
-                ItemIdInt--;
-            }
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f) ItemIdInt++;
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f) ItemIdInt--;
 
             if (Input.GetKeyDown(KeyCode.H))
             {
@@ -87,10 +78,16 @@ namespace EvolveGames
                 StartCoroutine(ItemChangeObject());
             }
 
-            // Press B to use Medikit
             if (Input.GetKeyDown(KeyCode.B))
             {
-                StartCoroutine(UseMedikit());
+                if (medikitCount > 0)
+                {
+                    StartCoroutine(UseMedikit());
+                }
+                else
+                {
+                    Debug.Log("No Medikits available!");
+                }
             }
         }
 
@@ -139,29 +136,34 @@ namespace EvolveGames
 
         IEnumerator UseMedikit()
         {
-            usingMedikit = true;
+            if (medikitCount <= 0) yield break;
 
-            // Hide the current item
+            usingMedikit = true;
+            medikitCount--;
+
             ani.SetBool("Hide", true);
             yield return new WaitForSeconds(0.3f);
             Items[ItemIdInt].SetActive(false);
 
-            // Show the Medikit
             Medikit.SetActive(true);
             ani.SetBool("Hide", false);
-            yield return new WaitForSeconds(1.2f); // Show unhide animation
-            yield return new WaitForSeconds(2.45f); // Wait for 1 min 20 sec (80 seconds)
+            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(2.45f);
 
-            // Hide Medikit
             ani.SetBool("Hide", true);
             yield return new WaitForSeconds(0.3f);
             Medikit.SetActive(false);
 
-            // Show previous item
             Items[ItemIdInt].SetActive(true);
             ani.SetBool("Hide", false);
 
             usingMedikit = false;
+        }
+
+        public void IncreaseMedikitCount(int amount)
+        {
+            medikitCount += amount;
+            Debug.Log("Medikit Count: " + medikitCount);
         }
     }
 }

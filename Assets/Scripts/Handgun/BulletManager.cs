@@ -68,7 +68,7 @@ public class BulletManager : MonoBehaviour
         UpdateBulletUI();
     }
 
-    void UpdateBulletUI()
+    public void UpdateBulletUI()
     {
         if (bulletText != null)
         {
