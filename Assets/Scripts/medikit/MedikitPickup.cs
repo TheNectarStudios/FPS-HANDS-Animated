@@ -1,5 +1,6 @@
 using UnityEngine;
 using EvolveGames;
+
 public class MedikitPickup : MonoBehaviour
 {
     public int medikitAmount = 1; // Number of medikits per pickup
@@ -11,6 +12,28 @@ public class MedikitPickup : MonoBehaviour
 
     private void Start()
     {
+        FindPlayer();
+    }
+
+    private void Update()
+    {
+        if (player == null)
+        {
+            FindPlayer();
+            return;
+        }
+
+        float distance = Vector3.Distance(transform.position, player.position);
+        Debug.Log("Distance to player: " + distance);
+        
+        if (distance <= pickupRange && Input.GetKeyDown(KeyCode.E))
+        {
+            PickupMedikit();
+        }
+    }
+
+    private void FindPlayer()
+    {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -18,20 +41,10 @@ public class MedikitPickup : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (player == null || isPickedUp) return;
-
-        float distance = Vector3.Distance(transform.position, player.position);
-        if (distance <= pickupRange && Input.GetKeyDown(KeyCode.E))
-        {
-            PickupMedikit();
-        }
-    }
-
     private void PickupMedikit()
     {
         isPickedUp = true;
+        GetComponent<Collider>().enabled = false; // Disable collider to prevent duplicate pickups
 
         ItemChange itemChange = FindObjectOfType<ItemChange>(); // Find ItemChange script
         if (itemChange != null)
@@ -45,7 +58,7 @@ public class MedikitPickup : MonoBehaviour
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.clip = pickupSound;
             audioSource.Play();
-            Destroy(gameObject, pickupSound.length);
+            Destroy(gameObject, pickupSound.length > 0 ? pickupSound.length : 0.1f);
         }
         else
         {

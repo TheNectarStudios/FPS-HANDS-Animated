@@ -1,21 +1,24 @@
 using UnityEngine;
+using UnityEngine.AI;
 using System.Collections.Generic;
 
 public class ZombieSpawner2 : MonoBehaviour
 {
-    public GameObject zombiePrefab;  // Assign zombie prefab in Inspector
-    public Transform player;         // Assign player Transform in Inspector
-    public int maxZombies = 5;       // Maximum zombies to spawn at a time
-    public float spawnRadius = 10f;  // Radius around spawner to spawn zombies
-    public float spawnDistanceThreshold = 20f; // Player must be this far for zombies to spawn
-    public float despawnDistance = 50f; // Despawn zombies if too far from spawner
-    public float checkInterval = 5f;  // Time between spawn checks
+    public GameObject zombiePrefab;  // Assign the zombie prefab in the Inspector
+    public Transform player;         // Assign the player transform in the Inspector
+    public float spawnRadius = 10f;  // Radius around this object to spawn zombies
+    public float activationDistance = 20f; // Distance at which player activates spawner
+    public float despawnDistance = 100f; // Distance at which zombies get deleted
+    public float spawnInterval = 5f; // Time between spawns
+    public float navMeshCheckRadius = 2f; // Radius for NavMesh check
 
-    private List<GameObject> activeZombies = new List<GameObject>(); // Track spawned zombies
+    private List<GameObject> activeZombies = new List<GameObject>(); // Track zombies
+    private bool isActive = false;
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnZombies), 2f, checkInterval);
+        InvokeRepeating(nameof(CheckPlayerDistance), 1f, 1f); // Check player distance periodically
+        InvokeRepeating(nameof(SpawnZombie), 2f, spawnInterval);
     }
 
     private void Update()
@@ -23,32 +26,27 @@ public class ZombieSpawner2 : MonoBehaviour
         DespawnDistantZombies();
     }
 
-    void SpawnZombies()
+    void CheckPlayerDistance()
     {
-        if (player == null || zombiePrefab == null) return;
+        if (player == null) return;
+        isActive = Vector3.Distance(player.position, transform.position) <= activationDistance;
+    }
 
-        float playerDistance = Vector3.Distance(transform.position, player.position);
+    void SpawnZombie()
+    {
+        if (!isActive || zombiePrefab == null) return;
 
-        // Only spawn if the player is far enough away
-        if (playerDistance < spawnDistanceThreshold) return;
+        Vector3 spawnPosition;
+        int attempts = 10; // Try multiple times to find a valid position
 
-        int zombiesToSpawn = maxZombies - activeZombies.Count;
-        if (zombiesToSpawn <= 0) return;
-
-        for (int i = 0; i < zombiesToSpawn; i++)
+        for (int i = 0; i < attempts; i++)
         {
-            Vector3 spawnPosition;
-            int attempts = 10; // Try multiple times to find a valid position
-
-            for (int j = 0; j < attempts; j++)
+            spawnPosition = GetSpawnPosition();
+            if (IsOnNavMesh(spawnPosition))
             {
-                spawnPosition = GetSpawnPosition();
-                if (!IsInPlayerView(spawnPosition))
-                {
-                    GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
-                    activeZombies.Add(zombie);
-                    break;
-                }
+                GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+                activeZombies.Add(zombie); // Add to list
+                return;
             }
         }
     }
@@ -56,17 +54,14 @@ public class ZombieSpawner2 : MonoBehaviour
     Vector3 GetSpawnPosition()
     {
         float angle = Random.Range(0, 360) * Mathf.Deg2Rad;
-        float distance = Random.Range(3f, spawnRadius); // Random spawn within radius
-
-        Vector3 offset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * distance;
+        Vector3 offset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * spawnRadius;
         return transform.position + offset;
     }
 
-    bool IsInPlayerView(Vector3 position)
+    bool IsOnNavMesh(Vector3 position)
     {
-        Vector3 directionToSpawn = (position - player.position).normalized;
-        float angleBetween = Vector3.Angle(player.forward, directionToSpawn);
-        return angleBetween < 60f; // Avoid spawning in a 60° field of view
+        NavMeshHit hit;
+        return NavMesh.SamplePosition(position, out hit, navMeshCheckRadius, NavMesh.AllAreas);
     }
 
     void DespawnDistantZombies()
@@ -75,11 +70,11 @@ public class ZombieSpawner2 : MonoBehaviour
         {
             if (activeZombies[i] == null)
             {
-                activeZombies.RemoveAt(i);
+                activeZombies.RemoveAt(i); // Remove destroyed zombies
                 continue;
             }
 
-            float distance = Vector3.Distance(transform.position, activeZombies[i].transform.position);
+            float distance = Vector3.Distance(player.position, activeZombies[i].transform.position);
             if (distance > despawnDistance)
             {
                 Destroy(activeZombies[i]);

@@ -36,7 +36,7 @@ public class BulletManager : MonoBehaviour
 
             if (currentBullets <= 0)
             {
-                animator.SetBool("OutOfAmmo", true);
+                // animator.SetBool("OutOfAmmo", true);
             }
         }
     }

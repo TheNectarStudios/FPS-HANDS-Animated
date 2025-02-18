@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using System.Collections.Generic;
 
 public class ZombieSpawner : MonoBehaviour
@@ -9,6 +10,7 @@ public class ZombieSpawner : MonoBehaviour
     public float maxDistance = 30f;  // Maximum spawn distance from player
     public float despawnDistance = 100f; // Distance at which zombies get deleted
     public float spawnInterval = 5f; // Time between spawns
+    public float navMeshCheckRadius = 2f; // Radius for NavMesh position check
 
     private List<GameObject> activeZombies = new List<GameObject>(); // Track zombies
 
@@ -32,7 +34,7 @@ public class ZombieSpawner : MonoBehaviour
         for (int i = 0; i < attempts; i++)
         {
             spawnPosition = GetSpawnPosition();
-            if (!IsInPlayerView(spawnPosition))
+            if (!IsInPlayerView(spawnPosition) && IsOnNavMesh(ref spawnPosition))
             {
                 GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
                 activeZombies.Add(zombie); // Add to list
@@ -55,6 +57,17 @@ public class ZombieSpawner : MonoBehaviour
         Vector3 directionToSpawn = (position - player.position).normalized;
         float angleBetween = Vector3.Angle(player.forward, directionToSpawn);
         return angleBetween < 60f; // 60° field of view
+    }
+
+    bool IsOnNavMesh(ref Vector3 position)
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(position, out hit, navMeshCheckRadius, NavMesh.AllAreas))
+        {
+            position = hit.position; // Adjust position to valid NavMesh location
+            return true;
+        }
+        return false;
     }
 
     void DespawnDistantZombies()
